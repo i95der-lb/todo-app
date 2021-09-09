@@ -1,8 +1,10 @@
 import { Component } from 'react'
 import {
     Checkbox,
-    List, 
-    Button
+    List,
+    Button,
+    Row,
+    Col
 } from 'antd'
 import { CustomText, CustomDiv } from './CustomText.style'
 
@@ -44,47 +46,54 @@ export default class ListToDos extends Component<MyProps, MyState> {
         return this.state.todos.findIndex((todo: ToDo) => todo.text === text)
     }
     onChange = (checkedValue: any) => {
-        console.log({checkedValue})
-        let indexOfToDo = this.getIndex(checkedValue.target.value)        
-        let oldToDos : ToDos = this.state.todos
+        console.log({ checkedValue })
+        let indexOfToDo = this.getIndex(checkedValue.target.value)
+        let oldToDos: ToDos = this.state.todos
         let oldCompletedValue = oldToDos[indexOfToDo].completed
-        let newToDo : ToDo = {
+        let newToDo: ToDo = {
             text: checkedValue.target.value,
             completed: !oldCompletedValue
         }
         oldToDos[indexOfToDo] = newToDo
         this.setState({ todos: oldToDos })
-        console.log({ListState: this.state})
+        console.log({ ListState: this.state })
     }
     checkIfCompleted = (text: string) => {
         let i = this.getIndex(text)
         return this.state.todos[i].completed
     }
     clearList = () => {
-        this.setState({ todos: []})
+        this.setState({ todos: [] })
         this.props.resetData()
     }
     render() {
         return (
             <CustomDiv>
-                {/* <Title>All ToDos</Title> */}
                 <List
                     size="large"
                     // bordered
+                    grid={{
+                        gutter: 16,
+                        column: 2
+                    }}
                     dataSource={this.state.todos}
                     renderItem={item => {
-                        return(
-                        <List.Item>
-                            <Checkbox
-                                onChange={this.onChange}
-                                value={item.text}
-                            >
-                                <CustomText checked={this.checkIfCompleted(item.text)}>
-                                    {item.text}
-                                </CustomText>
-                            </Checkbox>
-                        </List.Item>
-                    )}}
+                        return (
+                            <List.Item>
+                                <Col span={4}>
+                                    <Checkbox
+                                        onChange={this.onChange}
+                                        value={item.text}
+                                    >
+                                        <CustomText checked={this.checkIfCompleted(item.text)}>
+                                            {item.text}
+                                        </CustomText>
+                                    </Checkbox>
+                                </Col>
+
+                            </List.Item>
+                        )
+                    }}
                 />
                 <Button type="primary" onClick={this.clearList}>Clear ToDo List</Button>
             </CustomDiv>

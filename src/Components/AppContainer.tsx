@@ -22,7 +22,7 @@ export default class AppContainer extends Component<MyProps, MyState> {
         this.setState({ data: [...this.state.data, text] })
     }
     resetToDos = () => {
-        this.setState({ data: []})
+        this.setState({ data: [] })
     }
     render() {
         console.log({ AppContainerState: this.state })
@@ -53,16 +53,7 @@ export default class AppContainer extends Component<MyProps, MyState> {
                             </CustomContent>
                         </Col>
                     </Row>
-                    {/* <Footer>Footer</Footer> */}
                 </Layout>
-                {/* <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify="center">
-                    <Col span={12} >
-                        <AddToDo onAddingNewToDo={this.handleToDos} />
-                    </Col>
-                    <Col span={12} >
-                        <ListToDos data={this.state.data} />
-                    </Col>
-                </Row> */}
             </>
         );
     }

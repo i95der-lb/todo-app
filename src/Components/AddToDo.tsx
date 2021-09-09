@@ -27,11 +27,10 @@ export default class AddToDo extends Component<MyProps, MyState> {
     render() {
         return (
             <CustomDiv>
-                {/* <Title>Add ToDo</Title> */}
                 <Form
                     ref={this.form}
-                    labelCol={{ span: 6 }}
-                    wrapperCol={{ span: 12 }}
+                    labelCol={{xs: {offset: 2, span: 2}, sm: {offset: 4, span: 4}, md: {offset: 6, span: 6}, lg: {offset: 8, span: 8}, xl: {offset: 4, span: 4}}}
+                    wrapperCol={{xs: {span: 2}, sm: {span: 6}, md: {span: 8}, lg: {span: 10}, xl: {span: 12}}}
                     onFinish={this.onFinish}
                 >
                     <Form.Item
@@ -41,7 +40,7 @@ export default class AddToDo extends Component<MyProps, MyState> {
                         <Input />
                     </Form.Item>
                     <Form.Item 
-                    wrapperCol={{ offset: 8, span: 8 }}
+                    wrapperCol={{xs: {span: 4}, sm: {span: 6}, md: {span: 8}, lg: {span: 10}, xl: {offset: 8, span: 8}}}
                     >
                         <Button type="primary" htmlType="submit">
                             Add
