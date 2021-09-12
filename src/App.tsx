@@ -1,9 +1,9 @@
 import './App.css';
-import AppContainer from './Components/AppContainer';
-function App() {
+import AppContainerFunction from './Components/AppContainerFunction';
+const App = () => {
   return (
     <>
-      <AppContainer />
+      <AppContainerFunction />
     </>
   );
 }

@@ -8,11 +8,13 @@ interface CustomProps extends TextProps {
     checked: boolean
 }
 
+
 export const CustomText = styled((props: CustomProps) => <Text {...props}/>)`
     text-decoration: ${(props: CustomProps) => {
         return props.checked ? 'line-through' : 'none'
     }};
 `
+
 export const CustomTitle = styled(Title)`
 background-color: #c8e0d4;
 text-align: center;
@@ -30,7 +32,6 @@ text-align: center;
 padding: 0%;
 margin: 0;
 padding-top: 10%;
-
 `
 
 export const CustomDiv = styled.div`
