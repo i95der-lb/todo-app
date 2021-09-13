@@ -35,7 +35,6 @@ padding-top: 10%;
 `
 
 export const CustomDiv = styled.div`
-    /* width: 100%; */
     height: 100vh;
     background-color: #c8e0d4;
 `
