@@ -27,8 +27,8 @@ const ListToDosFunction = (props: MyProps) => {
     const onChange = (checkedValue: any) => {
         console.log({ checkedValue })
         let indexOfToDo = getIndex(checkedValue.target.value)
-        let oldToDos: ToDos = todos
-        let oldCompletedValue = oldToDos[indexOfToDo].completed
+        let oldToDos: ToDos = [...todos]
+        let oldCompletedValue = todos[indexOfToDo].completed
         let newToDo: ToDo = {
             text: checkedValue.target.value,
             completed: !oldCompletedValue
